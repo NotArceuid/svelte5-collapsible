@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { getContext, setContext, type Snippet } from "svelte";
+  import { setContext, type Snippet } from "svelte";
   import { SvelteMap } from "svelte/reactivity";
 
   export type AccordionProps = {
