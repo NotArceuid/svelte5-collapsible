@@ -1,23 +1,27 @@
-<script>
-  import Accordion from "$lib/Accordion/Accordion.svelte";
-  import AccordionItem from "$lib/Accordion/AccordionItem.svelte";
-  import CollapsibleCard from "$lib/Card/CollapsibleCard.svelte";
-  import { fade } from "svelte/transition";
+<script lang="ts">
+  import Accordion from "$lib/Components/Accordion.svelte";
+  import AccordionItem from "$lib/Components/AccordionItem.svelte";
+  import CollapsibleCard from "$lib/Components/CollapsibleCard.svelte";
+  import type { TransitionParams } from "$lib/Components/TransitionParams.js";
+  import { fade, slide } from "svelte/transition";
+
+  let accordionParams: TransitionParams = {
+    transition: slide,
+  };
 </script>
 
 <div>
-  <CollapsibleCard transition={fade}>
+  <CollapsibleCard params={{ transition: fade }}>
     {#snippet header()}
-      <div>Hello World!</div>
+      <div>Card</div>
     {/snippet}
     {#snippet body()}
-      <div>Lorem ipsum dolor sit amet</div>
+      <div>This is a card</div>
     {/snippet}
   </CollapsibleCard>
-
   <Accordion>
     {#snippet item1(key)}
-      <AccordionItem {key}>
+      <AccordionItem {key} params={accordionParams}>
         {#snippet header()}
           <div>First Item!</div>
         {/snippet}
@@ -27,7 +31,7 @@
       </AccordionItem>
     {/snippet}
     {#snippet item2(key)}
-      <AccordionItem {key}>
+      <AccordionItem {key} params={accordionParams}>
         {#snippet header()}
           <div>First Item!</div>
         {/snippet}
