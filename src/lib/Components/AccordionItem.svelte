@@ -4,12 +4,20 @@
   import type { SvelteMap } from "svelte/reactivity";
 
   let {
-    params,
+    transition,
+    transitionIn = transition,
+    transitionOut = transition,
     key,
     header,
     body,
-  }: { params: TransitionParams; key: string; header: Snippet; body: Snippet } =
-    $props();
+  }: {
+    transition: TransitionParams;
+    transitionIn?: TransitionParams;
+    transitionOut?: TransitionParams;
+    key: string;
+    header: Snippet;
+    body: Snippet;
+  } = $props();
 
   const store: SvelteMap<string, boolean> = getContext("accordion");
   function handleToggle(): void {
@@ -33,15 +41,15 @@
   </div>
   {#if store.get(key)}
     <div
-      in:params.transition={{
-        delay: params.delay,
-        duration: params.duration,
-        easing: params.easing,
+      in:transitionIn.transition={{
+        delay: transitionIn.delay,
+        duration: transitionIn.duration,
+        easing: transitionIn.easing,
       }}
-      out:params.transition={{
-        delay: params.delay,
-        duration: params.duration,
-        easing: params.easing,
+      out:transitionOut.transition={{
+        delay: transitionOut.delay,
+        duration: transitionOut.duration,
+        easing: transitionOut.easing,
       }}
     >
       {@render body()}

@@ -8,10 +8,13 @@
   let accordionParams: TransitionParams = {
     transition: slide,
   };
+  let accordionOutParams: TransitionParams = {
+    transition: fade,
+  };
 </script>
 
 <div>
-  <CollapsibleCard params={{ transition: fade }}>
+  <CollapsibleCard transition={{ transition: fade }}>
     {#snippet header()}
       <div>Card</div>
     {/snippet}
@@ -21,7 +24,7 @@
   </CollapsibleCard>
   <Accordion>
     {#snippet item1(key)}
-      <AccordionItem {key} params={accordionParams}>
+      <AccordionItem {key} transition={accordionParams}>
         {#snippet header()}
           <div>First Item!</div>
         {/snippet}
@@ -31,7 +34,7 @@
       </AccordionItem>
     {/snippet}
     {#snippet item2(key)}
-      <AccordionItem {key} params={accordionParams}>
+      <AccordionItem {key} transition={accordionParams}>
         {#snippet header()}
           <div>Second Item!</div>
         {/snippet}
@@ -41,7 +44,11 @@
       </AccordionItem>
     {/snippet}
     {#snippet item3(key)}
-      <AccordionItem {key} params={accordionParams}>
+      <AccordionItem
+        {key}
+        transitionOut={accordionOutParams}
+        transition={accordionParams}
+      >
         {#snippet header()}
           <div>Third Item!</div>
         {/snippet}

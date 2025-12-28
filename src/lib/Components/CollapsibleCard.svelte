@@ -2,12 +2,16 @@
   import type { Snippet } from "svelte";
   import type { TransitionParams } from "./TransitionParams.ts";
   let {
-    params,
+    transition,
+    transitionIn = transition,
+    transitionOut = transition,
     isOpen,
     header,
     body,
   }: {
-    params: TransitionParams;
+    transition: TransitionParams;
+    transitionIn?: TransitionParams;
+    transitionOut?: TransitionParams;
     isOpen?: boolean;
     header: Snippet;
     body: Snippet;
@@ -26,15 +30,15 @@
   {#if isOpen}
     <div
       class="card-body"
-      in:params.transition={{
-        delay: params.delay,
-        duration: params.duration,
-        easing: params.easing,
+      in:transitionIn.transition={{
+        delay: transitionIn.delay,
+        duration: transitionIn.duration,
+        easing: transitionIn.easing,
       }}
-      out:params.transition={{
-        delay: params.delay,
-        duration: params.duration,
-        easing: params.easing,
+      out:transitionOut.transition={{
+        delay: transitionOut.delay,
+        duration: transitionOut.duration,
+        easing: transitionOut.easing,
       }}
     >
       {@render body()}
