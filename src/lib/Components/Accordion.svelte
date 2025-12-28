@@ -1,27 +1,28 @@
-<script lang="ts" module>
-  import type { Snippet } from "svelte";
-  import { AccordionItemState } from "./Accordion.svelte.ts";
+<script lang="ts">
+  import { getContext, setContext, type Snippet } from "svelte";
+  import { SvelteMap } from "svelte/reactivity";
 
   export type AccordionProps = {
-    [key in `item${number}`]: Snippet<[string]>;
+    [key: string]: Snippet<[string]>;
   };
-</script>
 
-<script lang="ts">
   let props: AccordionProps = $props();
-  let prefix = "item";
 
-  let itemsNames = Object.keys(props).filter((key) =>
-    key.match(new RegExp(`^${prefix}\\d+$`)),
-  );
+  let itemsNames = Object.keys(props).filter((key) => {
+    const pattern = new RegExp(`^item\\d+$`);
+    return pattern.test(key);
+  });
 
   let elements: Array<Snippet<[string]>> = itemsNames.map(
-    (key: any) => props[key],
+    (key: string) => props[key],
   );
 
-  for (let i = 0; i < itemsNames.length; i++) {
-    AccordionItemState.set(itemsNames[i], false);
-  }
+  let accordionMap = new SvelteMap<string, boolean>();
+  itemsNames.forEach((x) => {
+    accordionMap.set(x, false);
+  });
+
+  setContext("accordion", accordionMap);
 </script>
 
 <div class="accordion">

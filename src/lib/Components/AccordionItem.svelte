@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { type Snippet } from "svelte";
-  import { AccordionItemState } from "./Accordion.svelte.ts";
+  import { getContext, type Snippet } from "svelte";
   import type { TransitionParams } from "./TransitionParams.ts";
+  import type { SvelteMap } from "svelte/reactivity";
 
   let {
     params,
@@ -11,19 +11,14 @@
   }: { params: TransitionParams; key: string; header: Snippet; body: Snippet } =
     $props();
 
+  const store: SvelteMap<string, boolean> = getContext("accordion");
   function handleToggle(): void {
-    const newMap = new Map(AccordionItemState);
-    newMap.set(key, !newMap.get(key));
-
-    for (const [k] of newMap) {
-      if (k !== key) {
-        newMap.set(k, false);
+    store.forEach((_, k) => {
+      if (k != key) {
+        store.set(k, false);
       }
-    }
-
-    newMap.forEach((v, k) => {
-      AccordionItemState.set(k, v);
     });
+    store.set(key, !store.get(key));
   }
 </script>
 
@@ -36,7 +31,7 @@
   >
     {@render header()}
   </div>
-  {#if AccordionItemState.get(key)}
+  {#if store.get(key)}
     <div
       in:params.transition={{
         delay: params.delay,

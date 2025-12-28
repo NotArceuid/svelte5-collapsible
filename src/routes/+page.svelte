@@ -33,7 +33,17 @@
     {#snippet item2(key)}
       <AccordionItem {key} params={accordionParams}>
         {#snippet header()}
-          <div>First Item!</div>
+          <div>Second Item!</div>
+        {/snippet}
+        {#snippet body()}
+          <div>Lorem ipsum!</div>
+        {/snippet}
+      </AccordionItem>
+    {/snippet}
+    {#snippet item3(key)}
+      <AccordionItem {key} params={accordionParams}>
+        {#snippet header()}
+          <div>Third Item!</div>
         {/snippet}
         {#snippet body()}
           <div>Lorem ipsum!</div>
