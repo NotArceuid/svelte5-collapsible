@@ -35,7 +35,7 @@ import { fade } from 'svelte/transition';
 Collection where only one item is open at a time.
 
 ```svelte
-<script leng="ts">
+<script lang="ts">
 import { Accordion, AccordionItem } from 'svelte5-collapse';
 let accordionParams: TransitionParams = {
   transition: slide,
