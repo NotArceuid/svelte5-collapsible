@@ -8,8 +8,6 @@ Rewrite of [svelte-collapsible](https://github.com/rsdavis/svelte-collapsible/) 
 npm install svelte5-collapse
 ```
 
-## Demos
-
 ## Components
 
 ### CollapsibleCard
