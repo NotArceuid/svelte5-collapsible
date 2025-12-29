@@ -5,7 +5,7 @@ Rewrite of [svelte-collapsible](https://github.com/rsdavis/svelte-collapsible/) 
 ## Installation
 
 ```bash
-npm install svelte5-collapse
+npm install svelte5-collapsible
 ```
 
 ## Components
