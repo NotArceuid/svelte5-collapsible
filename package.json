@@ -1,7 +1,7 @@
 {
   "name": "svelte5-collapsible",
-  "version": "0.0.1",
-  "description": "Rewrite of svelte-collapsible to leverage modern svelte syntax",
+  "version": "1.0.6",
+  "description": "Rewrite of svelte-collapsible to use svelte5 syntax",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build && npm run prepack",
@@ -19,13 +19,15 @@
   "sideEffects": [
     "**/*.css"
   ],
+  "license": "MIT",
   "svelte": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "type": "module",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "svelte": "./dist/index.js"
+      "svelte": "./dist/index.js",
+      "import": "./dist/index.js"
     }
   },
   "peerDependencies": {
@@ -42,11 +44,16 @@
     "typescript": "^5.9.3",
     "vite": "^7.2.6"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NotArceuid/svelte5-collapsible.git",
+    "directory": "/"
+  },
   "keywords": [
     "svelte5",
     "typescript",
     "accordion",
-    "collapse",
+    "card",
     "svelte",
     "expand",
     "component"

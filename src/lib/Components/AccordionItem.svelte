@@ -1,6 +1,6 @@
 <script lang="ts">
   import { getContext, type Snippet } from "svelte";
-  import type { TransitionParams } from "./TransitionParams.ts";
+  import type { TransitionParams } from "./TransitionParams.d.ts";
   import type { SvelteMap } from "svelte/reactivity";
 
   let {

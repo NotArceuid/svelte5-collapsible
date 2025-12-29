@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
-  import type { TransitionParams } from "./TransitionParams.ts";
+  import type { TransitionParams } from "./TransitionParams.d.ts";
   let {
     transition,
     transitionIn = transition,

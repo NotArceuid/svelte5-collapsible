@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Accordion from "$lib/Components/Accordion.svelte";
-  import AccordionItem from "$lib/Components/AccordionItem.svelte";
-  import CollapsibleCard from "$lib/Components/CollapsibleCard.svelte";
-  import type { TransitionParams } from "$lib/Components/TransitionParams.js";
+  import Accordion from "../lib/Components/Accordion.svelte";
+  import AccordionItem from "../lib/Components/AccordionItem.svelte";
+  import CollapsibleCard from "../lib/Components/CollapsibleCard.svelte";
+  import type { TransitionParams } from "../lib/Components/TransitionParams.d.ts";
   import { fade, slide } from "svelte/transition";
 
   let accordionParams: TransitionParams = {
