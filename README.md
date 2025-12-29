@@ -5,7 +5,7 @@ Rewrite of [svelte-collapsible](https://github.com/rsdavis/svelte-collapsible/) 
 ## Installation
 
 ```bash
-npm install svelte5-collapsible
+npm install svelte5-collapse
 ```
 
 ## Components
@@ -16,8 +16,8 @@ Standalone collapsible card with transitions.
 
 ```svelte
 <script>
-	import { CollapsibleCard } from 'svelte5-collapse';
-	import { fade } from 'svelte/transition';
+import { CollapsibleCard } from 'svelte5-collapse';
+import { fade } from 'svelte/transition';
 </script>
 
 <CollapsibleCard transition={{ transition: fade }}>
@@ -35,8 +35,12 @@ Standalone collapsible card with transitions.
 Collection where only one item is open at a time.
 
 ```svelte
-<script>
+<script leng="ts">
 import { Accordion, AccordionItem } from 'svelte5-collapse';
+let accordionParams: TransitionParams = {
+  transition: slide,
+};
+
 </script>
 
 
