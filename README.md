@@ -36,7 +36,7 @@ Collection where only one item is open at a time.
 
 ```svelte
 <script lang="ts">
-import { Accordion, AccordionItem } from 'svelte5-collapse';
+import { Accordion, AccordionItem, TransitionParams } from 'svelte5-collapse';
 let accordionParams: TransitionParams = {
   transition: slide,
 };
