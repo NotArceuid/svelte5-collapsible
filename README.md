@@ -16,7 +16,7 @@ Standalone collapsible card with transitions.
 
 ```svelte
 <script>
-import { CollapsibleCard } from 'svelte5-collapse';
+import { CollapsibleCard } from 'svelte5-collapsible';
 import { fade } from 'svelte/transition';
 </script>
 
@@ -36,13 +36,12 @@ Collection where only one item is open at a time.
 
 ```svelte
 <script lang="ts">
-import { Accordion, AccordionItem, TransitionParams } from 'svelte5-collapse';
+import { Accordion, AccordionItem, TransitionParams } from 'svelte5-collapsible';
 let accordionParams: TransitionParams = {
   transition: slide,
 };
 
 </script>
-
 
 <Accordion>
   {#snippet item1(key)}

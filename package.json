@@ -1,6 +1,6 @@
 {
   "name": "svelte5-collapsible",
-  "version": "1.0.7",
+  "version": "1.1.8",
   "description": "Rewrite of svelte-collapsible to use svelte5 syntax",
   "scripts": {
     "dev": "vite dev",
