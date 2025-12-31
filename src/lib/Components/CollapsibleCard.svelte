@@ -23,9 +23,15 @@
 </script>
 
 <div>
-  <button type="button" class="card-header" onclick={handleToggle}>
+  <div
+    tabindex="0"
+    role="button"
+    onkeydown={handleToggle}
+    class="card-header"
+    onclick={handleToggle}
+  >
     {@render header()}
-  </button>
+  </div>
 
   {#if isOpen}
     <div
